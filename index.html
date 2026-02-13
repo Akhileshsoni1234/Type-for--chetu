@@ -4,10 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Chetu ❤️</title>
     <style>
-        body { background: #fce4ec; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: sans-serif; overflow: hidden; }
-        .card { text-align: center; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: 280px; }
+        body { background: #fce4ec; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
+        .card { text-align: center; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: 280px; transition: 0.5s; }
         img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
-        h1 { color: #d81b60; font-size: 20px; margin-bottom: 20px; }
+        h1 { color: #d81b60; font-size: 20px; margin-bottom: 20px; line-height: 1.4; }
+        .quote { color: #880e4f; font-style: italic; font-size: 16px; margin-top: 15px; display: none; padding: 10px; border-top: 1px solid #fce4ec; }
         .btn-container { display: flex; justify-content: center; gap: 40px; height: 50px; }
         button { padding: 10px 20px; font-size: 16px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; }
         #yes-btn { background: #4caf50; color: white; transition: 0.2s; }
@@ -18,9 +19,12 @@
     <div class="card">
         <img id="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZid3R6ZnR4eGZ4eGZ4eGZ4eGZ4eGZ4eGZ4eGZ4eGZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/c76IJLufpNwSULPk77/giphy.gif">
         <h1 id="text">Chetu, will you be my Valentine?</h1>
-        <div class="btn-container">
+        <div class="btn-container" id="btns">
             <button id="yes-btn" onclick="celebrate()">Yes</button>
             <button id="no-btn" onmouseover="move()" onclick="move()">No</button>
+        </div>
+        <div id="love-quote" class="quote">
+            "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine." ❤️
         </div>
     </div>
 
@@ -29,18 +33,17 @@
         function move() {
             const btn = document.getElementById('no-btn');
             const yes = document.getElementById('yes-btn');
-            // Move No button
             btn.style.position = 'fixed';
             btn.style.left = Math.random() * (window.innerWidth - 80) + 'px';
             btn.style.top = Math.random() * (window.innerHeight - 40) + 'px';
-            // Grow Yes button
             scale += 0.5;
             yes.style.transform = `scale(${scale})`;
         }
         function celebrate() {
-            document.getElementById('text').innerHTML = "YAY! I love you Chetu! ❤️";
+            document.getElementById('text').innerHTML = "YAY! Happy Valentine's Day, Chetu!";
             document.getElementById('gif').src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZid3R6ZnR4eGZ4eGZ4eGZ4eGZ4eGZ4eGZ4eGZ4eGZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lTfuxm1R6K86di/giphy.gif";
-            document.getElementById('no-btn').style.display = 'none';
+            document.getElementById('btns').style.display = 'none';
+            document.getElementById('love-quote').style.display = 'block';
         }
     </script>
 </body>
